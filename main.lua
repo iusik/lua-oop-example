@@ -11,7 +11,7 @@ print(car:getYear())
 print(car:getBrand())
 print(car:getModel())
 
-print(car.wheel:getSize())
+print(car:getWheel():getSize())
 
 
 

@@ -4,6 +4,11 @@ local car = {
     year = 0,
 }
 
+
+function car:getWheel()
+    return self.wheel
+end
+
 function car:getBrand()
     return self.brand
 end
