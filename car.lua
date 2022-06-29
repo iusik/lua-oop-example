@@ -1,7 +1,7 @@
 local car = {
     brand = "",
     model = "",
-    year = 0
+    year = 0,
 }
 
 function car:getBrand()
@@ -17,11 +17,14 @@ function car:getYear()
 end
 
 function car:new(instance)
-    assert(type(instance.year) == 'number' and instance.year > 0, "year: be a positive integer")
-    assert(type(instance.brand) == 'string', "brand: be a positive string")
-    assert(type(instance.model) == 'string', "model: be a positive string")
+    assert(type(instance.year) == 'number' and instance.year > 0, "year: must be a positive integer")
+    assert(type(instance.brand) == 'string', "brand: must be a string")
+    assert(type(instance.model) == 'string', "model: must be a string")
+    assert(type(instance.wheel) == 'table', "wheel: must be a table")
 
     instance = instance or {}
+    -- create instance of wheel
+    instance.wheel = require('wheel'):new(instance.wheel)
 
     setmetatable(instance, self)
     self.__index = self
